@@ -1,0 +1,5 @@
+ChannelProccessor为项目主要研究代码
+
+ChannelPic为画图所需代码
+
+show为demo代码

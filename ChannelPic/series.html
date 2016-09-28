@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 1000px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+ var dataAll = [
+    
+       [
+	   ["20:34:49",192],["20:34:56",242],[2,180],[3,1860],[4,1922],[5,1770],[6,1903],[7,1778],[8,1922],[9,1933],[10,1765],[11,166],[12,3],[13,176]
+	   ]
+	   
+	   
+	   ];
+
+var markLineOpt = {
+    animation: false,
+    label: {
+        normal: {
+            formatter: 'y = 0.5 * x + 3',
+            textStyle: {
+                align: 'right'
+            }
+        }
+    },
+    lineStyle: {
+        normal: {
+            type: 'solid'
+        }
+    },
+    tooltip: {
+        formatter: 'y = 0.5 * x + 3'
+    },
+    data: [[{
+        coord: [0, 3],
+        symbol: 'none'
+    }, {
+        coord: [20, 13],
+        symbol: 'none'
+    }]]
+};
+
+option = {
+    title: {
+        text: '洗衣机的一次启动过程',
+        x: 'center',
+        y: 0
+    },
+    grid: [
+        {x: '7%', y: '7%', width: '100%', height: '88%'},
+    ],
+    tooltip: {
+        formatter: 'Group {a}: ({c})'
+    },
+    xAxis: [
+        {gridIndex: 0,
+		data: 
+["20:34:49","20:34:56","20:35:02","20:35:09","20:35:15","20:35:22","20:35:28","20:35:34","20:35:41","20:35:47","20:35:54","20:36:00","20:36:06","20:36:12"]
+}
+    ],
+    yAxis: [
+        {gridIndex: 0}
+    ],
+    series: [
+        {
+            name: 'I',
+            type: 'scatter',
+            xAxisIndex: [0],
+            yAxisIndex: [0],
+            data: [192,242,180,1860,1922,1770,1903,1778,1922,1933,1765,166,3,176,1]
+        }
+    ]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
